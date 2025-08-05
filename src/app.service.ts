@@ -7,6 +7,6 @@ export class AppService {
     private readonly testService: TestService
   ) {}
   getHello(): string {
-    return 'Kairos API.'
+    return `Kairos API - ${this.testService.work()}`
   }
 }
