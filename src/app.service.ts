@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { TestService } from './test/test.service'
+import { TestService } from './tester/tester.service'
 import { LoggerService } from './logger/logger.service'
 
 @Injectable()
