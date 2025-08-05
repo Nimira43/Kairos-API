@@ -6,4 +6,8 @@ export class LoggerService {
   constructor(
     private readonly messageFormatterService: MessageFormatterService
   ) {}
+
+  log(message: string): string {
+    const formattedMessage = this.messageFormatterService.format(message)
+  }
 }
