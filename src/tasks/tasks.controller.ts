@@ -9,7 +9,7 @@ export class TasksController {
   }
 
   @Get('/:id')
-  public findOne(@Param() params: any): string {
-    return `The number is ${params.id}`
+  public findOne(@Param('id') id: string): string {
+    return `The number is ${id}`
   }
 }
