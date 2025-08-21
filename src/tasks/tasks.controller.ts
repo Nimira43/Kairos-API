@@ -5,6 +5,10 @@ export class TasksController {
 
   @Get()
   public findAll(): string[] {
-    return ['Red', 'Yellow']
+    return ['A', 'B']
+  }
+
+  public findOne(): string {
+    return 'A'
   }
 }
