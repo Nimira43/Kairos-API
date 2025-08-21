@@ -8,6 +8,7 @@ export class TasksController {
     return ['A', 'B']
   }
 
+  @Get('/:id')
   public findOne(): string {
     return 'A'
   }
