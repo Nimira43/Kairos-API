@@ -12,7 +12,8 @@ export class TasksController {
   }
 
   @Get('/:id')
-  public findOne(@Param('id') id: string): string {
-    return `The number is ${id}`
+  public findOne(@Param('id') id: string): ITask {
+    
+    return this.tasksService.findOne(id)
   }
 }
