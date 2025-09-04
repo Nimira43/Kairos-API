@@ -4,4 +4,8 @@ import { Injectable } from '@nestjs/common'
 @Injectable()
 export class TasksService {
   private tasks: ITask[] = []
+
+  findAll(): ITask[] {
+    return this.tasks
+  }
 }
