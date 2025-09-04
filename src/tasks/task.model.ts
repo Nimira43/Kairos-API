@@ -3,3 +3,9 @@ export interface ITask {
   title: string
   description: string
 }
+
+export enum TaskStatus {
+  OPEN,
+  IN_PROGRESS,
+  DONE
+}
