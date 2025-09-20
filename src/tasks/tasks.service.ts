@@ -1,3 +1,4 @@
+import { CreateTaskDto } from './create-task.dto'
 import { ITask } from './task.model'
 import { Injectable } from '@nestjs/common'
 
@@ -11,5 +12,9 @@ export class TasksService {
 
   findOne(id: string): ITask | undefined {
     return this.tasks.find((task) => task.id === id)
+  }
+
+  create(createTaskDto: CreateTaskDto): ITask {
+    
   }
 }
