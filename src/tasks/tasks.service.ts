@@ -20,5 +20,8 @@ export class TasksService {
       id: randomUUID(),
       ...createTaskDto,
     }
+
+    this.tasks.push(task)
+    return task
   }
 }
