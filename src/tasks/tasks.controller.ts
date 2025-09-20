@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException, Param } from '@nestjs/common'
+import { Controller, Get, NotFoundException, Param, Post } from '@nestjs/common'
 import { TasksService } from './tasks.service'
 import { ITask } from './task.model'
 
@@ -21,4 +21,7 @@ export class TasksController {
 
     throw new NotFoundException()
   }
+
+  @Post()
+  public create() {}
 }
