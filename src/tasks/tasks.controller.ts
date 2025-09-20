@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, NotFoundException, Param, Post } from '@nestjs/common'
 import { TasksService } from './tasks.service'
 import { ITask } from './task.model'
 
@@ -23,5 +23,5 @@ export class TasksController {
   }
 
   @Post()
-  public create() {}
+  public create(@Body() data: any) {}
 }
