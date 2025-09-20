@@ -25,6 +25,6 @@ export class TasksController {
 
   @Post()
   public create(@Body() createTaskDto: CreateTaskDto) {
-    
+    return this.tasksService.create(createTaskDto)
   }
 }
