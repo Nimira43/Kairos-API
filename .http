@@ -19,3 +19,13 @@ Content-Type: {{contentType}}
   "description": "Another serverside Nest JS application.",
   "status": "OPEN"
 }
+
+### Create a bad validation task
+POST {{baseUrl}}/tasks
+Content-Type: {{contentType}}
+
+{
+  "title": "Kairos API",
+  "description": "Another serverside Nest JS application.",
+  "status": "XXXX"
+}
