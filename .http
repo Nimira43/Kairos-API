@@ -1,8 +1,8 @@
 @baseUrl = http://localhost:3000
 @contentType = application/json
 
-http://localhost:3000
+http://{{baseUrl}}
 
-GET http://localhost:3000/tasks
+GET http://{{baseUrl}}/tasks
 
-GET http://localhost:3000/tasks/123
+GET http://{{baseUrl}}/tasks/123
