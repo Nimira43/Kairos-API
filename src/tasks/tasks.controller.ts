@@ -29,5 +29,13 @@ export class TasksController {
     return this.tasksService.create(createTaskDto)
   }
 
-  private FindOneOrFail(id: string)
+  private FindOneOrFail(id: string): ITask {
+    const task = this.tasksService.findOne(params.id)
+
+    if (!task) {
+      throw new NotFoundException()
+    }
+
+    
+  }
 }
