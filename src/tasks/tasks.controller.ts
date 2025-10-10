@@ -30,6 +30,8 @@ export class TasksController {
     @Body() body: UpdateTaskStatusDto,
   ) : ITask {
     const task = this.findOneOrFail(params.id)
+    task.status = body.status
+    return task
   }
 
   private findOneOrFail(id: string): ITask {
