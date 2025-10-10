@@ -30,12 +30,12 @@ export class TasksController {
   }
 
   private FindOneOrFail(id: string): ITask {
-    const task = this.tasksService.findOne(params.id)
+    const task = this.tasksService.findOne(id)
 
     if (!task) {
       throw new NotFoundException()
     }
 
-    
+    return task
   }
 }
