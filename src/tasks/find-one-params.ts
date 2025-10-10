@@ -4,5 +4,5 @@ export class FindOneParams {
   @IsNotEmpty()
   @IsString()
   @IsUUID()
-  id: string;
+  id: string
 }
