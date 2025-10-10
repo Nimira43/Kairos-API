@@ -3,6 +3,7 @@ import { Body, Controller, Get, NotFoundException, Param, Patch, Post } from '@n
 import { TasksService } from './tasks.service'
 import { ITask } from './task.model'
 import { CreateTaskDto } from './create-task.dto'
+import { UpdateTaskStatusDto } from './update-task-status.dto';
 
 @Controller('tasks')
 export class TasksController {
@@ -26,7 +27,7 @@ export class TasksController {
   @Patch('/:id/status')
   public updateTaskStatus(
     @Param() params: FindOneParams,
-    @Body()
+    @Body() body: UpdateTaskStatusDto,
   ) : ITask {
 
   }
