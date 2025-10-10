@@ -24,7 +24,12 @@ export class TasksController {
   }
 
   @Patch('/:id/status')
-  updateTaskStatus(@Param() params: FindOneParams) {}
+  public updateTaskStatus(
+    @Param() params: FindOneParams,
+    @Body()
+  ) : ITask {
+
+  }
 
   private findOneOrFail(id: string): ITask {
     const task = this.tasksService.findOne(id)
