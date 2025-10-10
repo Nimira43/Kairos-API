@@ -15,13 +15,7 @@ export class TasksController {
 
   @Get('/:id')
   public findOne(@Param() params:  FindOneParams): ITask {
-    const task = this.tasksService.findOne(params.id)
-
-    if (task) {
-      return task
-    }
-
-    throw new NotFoundException()
+    return this.findOneOrFail(params.id)
   }
 
   @Post()
@@ -29,7 +23,7 @@ export class TasksController {
     return this.tasksService.create(createTaskDto)
   }
 
-  private FindOneOrFail(id: string): ITask {
+  private findOneOrFail(id: string): ITask {
     const task = this.tasksService.findOne(id)
 
     if (!task) {
