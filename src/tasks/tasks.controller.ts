@@ -28,4 +28,6 @@ export class TasksController {
   public create(@Body() createTaskDto: CreateTaskDto) {
     return this.tasksService.create(createTaskDto)
   }
+
+  private FindOneOrFail(id: string)
 }
