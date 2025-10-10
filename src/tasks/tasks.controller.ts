@@ -1,5 +1,5 @@
 import { FindOneParams } from './find-one-params';
-import { Body, Controller, Get, NotFoundException, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, NotFoundException, Param, Patch, Post } from '@nestjs/common'
 import { TasksService } from './tasks.service'
 import { ITask } from './task.model'
 import { CreateTaskDto } from './create-task.dto'
@@ -22,6 +22,9 @@ export class TasksController {
   public create(@Body() createTaskDto: CreateTaskDto) {
     return this.tasksService.create(createTaskDto)
   }
+
+  @Patch('/:id/status')
+  updateTaskStatus(@Param() params: FindOneParams) {}
 
   private findOneOrFail(id: string): ITask {
     const task = this.tasksService.findOne(id)
