@@ -29,7 +29,7 @@ export class TasksController {
     @Param() params: FindOneParams,
     @Body() body: UpdateTaskStatusDto,
   ) : ITask {
-
+    const task = this.findOneOrFail(params.id)
   }
 
   private findOneOrFail(id: string): ITask {
