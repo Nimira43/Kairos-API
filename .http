@@ -29,3 +29,11 @@ Content-Type: {{contentType}}
   "description": "",
   "status": ""
 }
+
+#Update the task status
+PATCH {{baseUrl}}/tasks/068c8552-bd34-4dce-a468-20482cbbcd87/status
+Content-Type: {{contentType}}
+
+{
+  "status": "DONE"
+}
