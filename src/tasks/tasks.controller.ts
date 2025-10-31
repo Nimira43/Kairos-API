@@ -36,6 +36,7 @@ export class TasksController {
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
+  public deleteTask(@Param() params: FindOneParams): void {}
 
   private findOneOrFail(id: string): ITask {
     const task = this.tasksService.findOne(id)
