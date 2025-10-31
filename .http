@@ -31,7 +31,7 @@ Content-Type: {{contentType}}
 }
 
 #Update the task status
-PATCH {{baseUrl}}/tasks/c8854b6c-5e88-474b-83da-8c7a587d3d78/status
+PATCH {{baseUrl}}/tasks/92d8c464-10f5-4233-b35d-8b97764a3367/status
 Content-Type: {{contentType}}
 
 {
