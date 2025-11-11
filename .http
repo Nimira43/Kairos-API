@@ -38,5 +38,5 @@ Content-Type: {{contentType}}
   "status": "DONE"
 }
 
-DELETE {{baseUrl}}/tasks/b4372d26-4aec-483d-b3c5-95d18f216fef
+DELETE {{baseUrl}}/tasks/d7821660-1511-4fe1-89ac-0efbad3bd8c9
 Content-Type: {{contentType}}
