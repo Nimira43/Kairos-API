@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto'
 import { CreateTaskDto } from './create-task.dto'
 import { ITask } from './task.model'
 import { Injectable } from '@nestjs/common'
+import { UpdateTaskDto } from './update-task.dto'
 
 @Injectable()
 export class TasksService {
@@ -20,10 +21,11 @@ export class TasksService {
       id: randomUUID(),
       ...createTaskDto,
     }
-
     this.tasks.push(task)
     return task
   }
+
+  public updateTask(id: string, updateTaskDto: UpdateTaskDto): ITask
 
   public deleteTask(id: string):void {
     this.tasks = this.tasks.filter(task => task.id !== id)

@@ -40,8 +40,7 @@ export class TasksController {
     @Body() updateTaskDto: UpdateTaskDto,
   ) : ITask {
     const task = this.findOneOrFail(params.id)
-    this.tasksService.updateTask(params.id, updateTaskDto)
-    return task
+    return this.tasksService.updateTask(params.id, updateTaskDto)
   }
 
   @Delete('/:id')
