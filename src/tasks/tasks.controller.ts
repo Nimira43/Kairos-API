@@ -3,7 +3,7 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, NotFoundException,
 import { TasksService } from './tasks.service'
 import { ITask } from './task.model'
 import { CreateTaskDto } from './create-task.dto'
-import { UpdateTaskStatusDto } from './update-task-status.dto';
+import { UpdateTaskDto } from './update-task.dto'
 
 @Controller('tasks')
 export class TasksController {
@@ -24,23 +24,23 @@ export class TasksController {
     return this.tasksService.create(createTaskDto)
   }
 
-  @Patch('/:id/status')
-  public updateTaskStatus(
-    @Param() params: FindOneParams,
-    @Body() body: UpdateTaskStatusDto,
-  ) : ITask {
-    const task = this.findOneOrFail(params.id)
-    task.status = body.status
-    return task
-  }
+  // @Patch('/:id/status')
+  // public updateTaskStatus(
+  //   @Param() params: FindOneParams,
+  //   @Body() body: UpdateTaskStatusDto,
+  // ) : ITask {
+  //   const task = this.findOneOrFail(params.id)
+  //   task.status = body.status
+  //   return task
+  // }
   
-  @Patch('/:id/status')
+  @Patch('/:id')
   public updateTaskStatus(
     @Param() params: FindOneParams,
-    @Body() body: UpdateTaskStatusDto,
+    @Body() updateTaskDto: UpdateTaskDto,
   ) : ITask {
     const task = this.findOneOrFail(params.id)
-    task.status = body.status
+    this.tasksService.updateTask(params.id, updateTaskDto)
     return task
   }
 
