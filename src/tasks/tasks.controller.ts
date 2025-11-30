@@ -33,6 +33,16 @@ export class TasksController {
     task.status = body.status
     return task
   }
+  
+  @Patch('/:id/status')
+  public updateTaskStatus(
+    @Param() params: FindOneParams,
+    @Body() body: UpdateTaskStatusDto,
+  ) : ITask {
+    const task = this.findOneOrFail(params.id)
+    task.status = body.status
+    return task
+  }
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
