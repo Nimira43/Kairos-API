@@ -9,9 +9,10 @@ http://{{baseUrl}}
 GET {{baseUrl}}/tasks
 
 ### Get one task
-GET {{baseUrl}}/tasks/123
+GET {{baseUrl}}/tasks/{{taskId}}
 
 ### Create new task
+# @name createTask
 POST {{baseUrl}}/tasks
 Content-Type: {{contentType}}
 
@@ -20,6 +21,9 @@ Content-Type: {{contentType}}
   "description": "Another serverside Nest JS application.",
   "status": "OPEN"
 }
+
+### Set the task id
+@taskId = {{ createTask.response.body.id }}
 
 ### Validation error - status is incorrect
 POST {{baseUrl}}/tasks
@@ -32,12 +36,12 @@ Content-Type: {{contentType}}
 }
 
 #Update the task status
-PATCH {{baseUrl}}/tasks/92d8c464-10f5-4233-b35d-8b97764a3367/status
+PATCH {{baseUrl}}/tasks/{{taskId}}
 Content-Type: {{contentType}}
 
 {
-  "status": "DONE"
+  "status": "IN_PROGRESS"
 }
 
-DELETE {{baseUrl}}/tasks/d7821660-1511-4fe1-89ac-0efbad3bd8c9
+DELETE {{baseUrl}}/tasks/{{taskId}}
 Content-Type: {{contentType}}
