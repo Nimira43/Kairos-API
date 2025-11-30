@@ -25,9 +25,13 @@ export class TasksService {
     return task
   }
 
-  public updateTask(id: string, updateTaskDto: UpdateTaskDto): ITask
+  public updateTask(id: string, updateTaskDto: UpdateTaskDto): ITask {
 
-  public deleteTask(id: string):void {
-    this.tasks = this.tasks.filter(task => task.id !== id)
+  }
+
+  public deleteTask(task: ITask):void {
+    this.tasks = this.tasks.filter(
+      filteredTask => filteredTask.id !== task.id
+    )
   }
 }
