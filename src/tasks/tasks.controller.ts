@@ -35,19 +35,19 @@ export class TasksController {
   // }
   
   @Patch('/:id')
-  public updateTaskStatus(
+  public updateTask(
     @Param() params: FindOneParams,
     @Body() updateTaskDto: UpdateTaskDto,
   ) : ITask {
     const task = this.findOneOrFail(params.id)
-    return this.tasksService.updateTask(params.id, updateTaskDto)
+    return this.tasksService.updateTask(task, updateTaskDto)
   }
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
   public deleteTask(@Param() params: FindOneParams): void {
     const task = this.findOneOrFail(params.id)
-    this.tasksService.deleteTask(task.id)
+    this.tasksService.deleteTask(task)
   }
 
   private findOneOrFail(id: string): ITask {
