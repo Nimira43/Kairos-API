@@ -25,8 +25,9 @@ export class TasksService {
     return task
   }
 
-  public updateTask(id: string, updateTaskDto: UpdateTaskDto): ITask {
-
+  public updateTask(task: ITask, updateTaskDto: UpdateTaskDto): ITask {
+    Object.assign(task, updateTaskDto)
+    return task
   }
 
   public deleteTask(task: ITask):void {
