@@ -8,15 +8,15 @@ import { UpdateTaskDto } from './update-task.dto'
 export class TasksService {
   private tasks: ITask[] = []
 
-  findAll(): ITask[] {
+  public findAll(): ITask[] {
     return this.tasks
   }
 
-  findOne(id: string): ITask | undefined {
+  public findOne(id: string): ITask | undefined {
     return this.tasks.find((task) => task.id === id)
   }
 
-  create(createTaskDto: CreateTaskDto): ITask {
+  public create(createTaskDto: CreateTaskDto): ITask {
     const task: ITask = {
       id: randomUUID(),
       ...createTaskDto,
@@ -29,6 +29,10 @@ export class TasksService {
     Object.assign(task, updateTaskDto)
     return task
   }
+
+  private isValidStatusTransition(
+
+  ): boolean
 
   public deleteTask(task: ITask):void {
     this.tasks = this.tasks.filter(
