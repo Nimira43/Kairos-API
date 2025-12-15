@@ -19,7 +19,7 @@ Content-Type: {{contentType}}
 {
   "title": "Kairos API",
   "description": "Another serverside Nest JS application.",
-  "status": "OPEN"
+  "status": "DONE"
 }
 
 ### Set the task id
