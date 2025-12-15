@@ -39,6 +39,7 @@ export class TasksService {
       TaskStatus.IN_PROGRESS,
       TaskStatus.DONE
     ]
+    return statusOrder.indexOf(currentStatus)
   }
 
   public deleteTask(task: ITask):void {
