@@ -33,7 +33,13 @@ export class TasksService {
   private isValidStatusTransition(
     currentStatus: TaskStatus,
     newStatus: TaskStatus
-  ): boolean
+  ): boolean {
+    const statusOrder = [
+      TaskStatus.OPEN,
+      TaskStatus.IN_PROGRESS,
+      TaskStatus.DONE
+    ]
+  }
 
   public deleteTask(task: ITask):void {
     this.tasks = this.tasks.filter(
