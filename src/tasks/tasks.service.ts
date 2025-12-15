@@ -26,7 +26,10 @@ export class TasksService {
   }
 
   public updateTask(task: ITask, updateTaskDto: UpdateTaskDto): ITask {
-    if (updateTaskDto.status && !this.isValidStatusTransition(task.status, updateTaskDto.status)) {
+    if (
+      updateTaskDto.status &&
+      !this.isValidStatusTransition(task.status, updateTaskDto.status)
+    ) {
       throw WrongTaskStatusException()
     }
 
