@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { CreateTaskDto } from './create-task.dto'
-import { ITask } from './task.model'
+import { ITask, TaskStatus } from './task.model'
 import { Injectable } from '@nestjs/common'
 import { UpdateTaskDto } from './update-task.dto'
 
@@ -31,7 +31,8 @@ export class TasksService {
   }
 
   private isValidStatusTransition(
-
+    currentStatus: TaskStatus,
+    newStatus: TaskStatus
   ): boolean
 
   public deleteTask(task: ITask):void {
