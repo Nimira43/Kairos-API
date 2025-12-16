@@ -48,6 +48,8 @@ export class TasksController {
       if (error instanceof WrongTaskStatusException) {
         throw new BadRequestException(error.message)
       }
+
+      throw error
     }
   }
 
