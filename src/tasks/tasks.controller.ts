@@ -46,7 +46,7 @@ export class TasksController {
       return this.tasksService.updateTask(task, updateTaskDto)
     } catch (error) {
       if (error instanceof WrongTaskStatusException) {
-        throw new BadRequestException(error.message)
+        throw new BadRequestException([error.message])
       }
 
       throw error
