@@ -7,9 +7,11 @@ import { LoggerService } from './logger/logger.service'
 import { TasksModule } from './tasks/tasks.module'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { appConfig } from './config/app.config'
-import { appConfigSchema, ConfigType } from './config/config.types'
+import { appConfigSchema } from './config/config.types'
 import { typeOrmConfig } from './config/database.config'
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { TypedConfigService } from './config/typed-config.service'
+import { Task } from './tasks/task.entity'
 
 @Module({
   imports: [
@@ -17,9 +19,11 @@ import { TypeOrmModule } from '@nestjs/typeorm'
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (
-        configService: ConfigService<ConfigType>
+        configService: TypedConfigService
       ) => ({
-        ...configService.get('database')
+        ...configService.get('database'),
+        entities: [Task],
+
       })
     }),
     ConfigModule.forRoot({
@@ -37,7 +41,11 @@ import { TypeOrmModule } from '@nestjs/typeorm'
     AppService, 
     TestService, 
     MessageFormatterService, 
-    LoggerService
+    LoggerService,
+    {
+      provide: TypedConfigService,
+      useExisting: ConfigService
+    },
   ],
 })
 export class AppModule {}
